@@ -4,12 +4,15 @@ import "./index.css";
 import App from "./App";
 
 import { BrowserRouter } from "react-router-dom";
+import HouseContextProvider from "./components/HouseContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    <HouseContextProvider>
     <BrowserRouter>
       <App />
     </BrowserRouter>
+    </HouseContextProvider>
   </React.StrictMode>
 );
