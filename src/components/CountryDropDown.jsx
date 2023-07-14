@@ -11,8 +11,8 @@ const CountryDropDown = () => {
   const {country,setCountry,countries}=useContext(HouseContext)
 
 
-    console.log(countries)
-
+    
+      console.log(countries,"coutries")
 
       const [isOpen,setIsOpen]=useState(false)
 
@@ -24,20 +24,22 @@ const CountryDropDown = () => {
        
          <RiMapPinLine className='dropdown-icon-primary'/>
          <div>
-          <div>{country}</div>
+          <div className='text-[15px] font-medium leading-tight'>{country}</div>
           <div className='text-[13px]'>Select Your Place</div>
          </div>
          {
             isOpen ? (
-              <RiArrowUpSLine className='dropdown-icon-secondary'/>
+              <RiArrowUpSLine 
+              className='dropdown-icon-secondary'/>
             ) :(
-              <RiArrowDownSLine className='dropdown-icon-secondary'/>
+              <RiArrowDownSLine
+              className='dropdown-icon-secondary'/>
             )
           }
        </Menu.Button>
 
 
-       <Menu.Items>
+       <Menu.Items className="dropdown-menu">
           {countries.map((country,index)=>{
             return(
 

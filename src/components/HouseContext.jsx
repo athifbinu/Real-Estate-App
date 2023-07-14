@@ -17,22 +17,20 @@ const HouseContextProvider = ({children}) => {
     const [loading,setLoading]=useState('false')
 
 
-
     useEffect(()=>{
        const allcountries=houses.map((house)=>{
           return house.country
        })
 
-       console.log(allcountries)
-
        //remove dup from countries
-      const uniqueCountries=['Location (any)',... new Set(allcountries)]
+      const uniqueCountries=['Location (any)',...new Set(allcountries)]
 
-      console.log(uniqueCountries)
+        
+      console.log(uniqueCountries,"uniquecontries")
 
 
       setCountries(uniqueCountries)
-    })
+    },[])
 
 
   return (
