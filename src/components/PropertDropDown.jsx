@@ -34,7 +34,7 @@ const PropertDropDown = () => {
         {properties.map((property, index) => {
           return (
             <Menu.Item
-              onClick={() => setproperty(property)}
+              onClick={()=>setproperty(property)}
               className="cursor-pointer hover:text-violet-700
                transition"
               as="li"
