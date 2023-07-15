@@ -17,6 +17,7 @@ const HouseContextProvider = ({children}) => {
     const [loading,setLoading]=useState('false')
 
 
+     //return all counties
     useEffect(()=>{
        const allcountries=houses.map((house)=>{
           return house.country
@@ -33,6 +34,30 @@ const HouseContextProvider = ({children}) => {
     },[])
 
 
+    //return all properties
+
+    useEffect(()=>{
+      const allProperties=houses.map((house)=>{
+         return house.type
+      })
+
+      //remove dup from countries
+     const uniqueProperties=['Location (any)',...new Set(allProperties)]
+
+       
+     console.log(uniqueProperties,"uniquecontries")
+
+
+     setPropeties(uniqueProperties)
+   },[])
+
+
+   const handleClick =()=>{
+    console.log("clicked")
+   }
+
+
+
   return (
     <HouseContext.Provider value={{
       country,
@@ -45,6 +70,7 @@ const HouseContextProvider = ({children}) => {
       setPrice,
       houses,
       loading,
+      handleClick
 
 
     }}>
