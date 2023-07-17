@@ -10,6 +10,7 @@ const HouseList = () => {
 
   const {houses,loading}=useContext(HouseContext)
 
+  
 
   return (
     <section className='mb-20'>

@@ -56,6 +56,9 @@ const HouseContextProvider = ({children}) => {
     console.log(country,property,price)
 
 
+  
+
+
     const isDefualt=(str)=>{
         return str.split('').includes('(any)')
     }

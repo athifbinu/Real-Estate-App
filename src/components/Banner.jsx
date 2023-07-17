@@ -6,6 +6,9 @@ import Image from "../asssets/img/house-banner.png"
 import Search from './Search';
 
 const Banner = () => {
+
+
+  
   return (
     <section className='h-full mx-h-[640px]
      mb-8 xl:mb-24'>
