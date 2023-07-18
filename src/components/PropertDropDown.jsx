@@ -5,11 +5,12 @@ import { Menu } from "@headlessui/react";
 import { HouseContext } from "./HouseContext";
 
 const PropertDropDown = () => {
-  const { property, setproperty, properties } = useContext(HouseContext);
+  const { property, setProperty, properties } = useContext(HouseContext);
 
   console.log(properties, "properties");
 
   const [isOpen, setIsOpen] = useState(false);
+
 
   return (
     <Menu as="div" className="dropdown relative">
@@ -34,7 +35,7 @@ const PropertDropDown = () => {
         {properties.map((property, index) => {
           return (
             <Menu.Item
-              onClick={()=>setproperty(property)}
+              onClick={()=>setProperty(property)}
               className="cursor-pointer hover:text-violet-700
                transition"
               as="li"

@@ -57,6 +57,7 @@ import Agent12 from '../img/agents/agent12.png';
 
 export const housesData = [
   {
+    
     id: 1,
     type: 'House',
     name: 'House 1',
