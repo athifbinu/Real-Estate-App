@@ -24,6 +24,7 @@ const HouseContextProvider = ({ children }) => {
 
     setCountries(uniqueCountries);
   }, []);
+  
 
   //return all properties
 
@@ -36,10 +37,12 @@ const HouseContextProvider = ({ children }) => {
     const uniqueProperties = ["Location (any)", ...new Set(allProperties)];
 
     setPropeties(uniqueProperties);
+
   }, []);
 
   const handleClick = () => {
-    console.log("totel result",country,property,price);
+       console.log(country,property,price)
+
   };
 
   return (
