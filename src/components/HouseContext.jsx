@@ -24,7 +24,6 @@ const HouseContextProvider = ({ children }) => {
 
     setCountries(uniqueCountries);
   }, []);
-  
 
   //return all properties
 
@@ -37,12 +36,36 @@ const HouseContextProvider = ({ children }) => {
     const uniqueProperties = ["Location (any)", ...new Set(allProperties)];
 
     setPropeties(uniqueProperties);
-
   }, []);
 
   const handleClick = () => {
-       console.log(country,property,price)
+    console.log(country, property, price);
 
+    const isDeafualt = (str) => {
+      return str.split("").includes("()");
+    };
+    const minPrice = parseInt(price.split(" ")[0]);
+
+    const MaxPrice = parseInt(price.split(" ")[2]);
+
+    console.log(MaxPrice);
+
+    const newHouse = housesData.filter((house) => {
+      const housePrice = parseInt(house.price);
+
+      if (
+        house.country === country &&
+        house.type === property &&
+        housePrice >= minPrice &&
+        housePrice <= MaxPrice
+      ) {
+        return house;
+      }
+    });
+
+    //totel search result
+
+    console.log(newHouse, "newHouse");
   };
 
   return (
