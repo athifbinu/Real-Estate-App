@@ -77,6 +77,3 @@ const PriceRangeDropDown = () => {
 };
 
 export default PriceRangeDropDown;
-
-
-

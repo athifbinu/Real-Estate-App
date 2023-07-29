@@ -9,8 +9,6 @@ import { Link } from "react-router-dom";
 const HouseList = () => {
   const { houses, loading } = useContext(HouseContext);
 
-
-
   return (
     <section className="mb-20">
       <div className="container mx-auto">

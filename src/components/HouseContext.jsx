@@ -106,8 +106,7 @@ const HouseContextProvider = ({ children }) => {
 
     setTimeout(() => {
       return (
-        newHouse.length < 1 ? setHouse([]) :
-        setHouse(newHouse),
+        newHouse.length < 1 ? setHouse([]) : setHouse(newHouse),
         setLoading(false)
       );
     }, 1000);

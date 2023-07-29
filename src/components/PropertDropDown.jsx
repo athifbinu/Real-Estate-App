@@ -1,5 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-import { RiMapPinLine, RiArrowDownSLine, RiArrowUpSLine,RiHome5Line } from "react-icons/ri";
+import {
+  RiMapPinLine,
+  RiArrowDownSLine,
+  RiArrowUpSLine,
+  RiHome5Line,
+} from "react-icons/ri";
 
 import { Menu } from "@headlessui/react";
 import { HouseContext } from "./HouseContext";
@@ -7,9 +12,7 @@ import { HouseContext } from "./HouseContext";
 const PropertDropDown = () => {
   const { property, setProperty, properties } = useContext(HouseContext);
 
-
   const [isOpen, setIsOpen] = useState(false);
-
 
   return (
     <Menu as="div" className="dropdown relative">
@@ -20,7 +23,9 @@ const PropertDropDown = () => {
       >
         <RiHome5Line className="dropdown-icon-primary" />
         <div>
-          <div className="text-[15px] font-medium leading-tight">{property}</div>
+          <div className="text-[15px] font-medium leading-tight">
+            {property}
+          </div>
           <div className="text-[13px]">Select Your Place</div>
         </div>
         {isOpen ? (
@@ -34,7 +39,7 @@ const PropertDropDown = () => {
         {properties.map((property, index) => {
           return (
             <Menu.Item
-              onClick={()=>setProperty(property)}
+              onClick={() => setProperty(property)}
               className="cursor-pointer hover:text-violet-700
                transition"
               as="li"
@@ -49,4 +54,4 @@ const PropertDropDown = () => {
   );
 };
 
-export default  PropertDropDown;
+export default PropertDropDown;
