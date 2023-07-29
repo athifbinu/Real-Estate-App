@@ -23,7 +23,7 @@ const PropertyDetailes = () => {
     return house.id===parseInt(id)
   })
 
-  console.log(house)
+  
   return (
     <section>
       <div className="container mx-auto min-h-[800px] mb-14">

@@ -41,6 +41,8 @@ const HouseContextProvider = ({ children }) => {
   const handleClick = () => {
     console.log(country, property, price);
 
+    setLoading(true);
+
     const isDeafualt = (str) => {
       return str.split("").includes("()");
     };
@@ -48,7 +50,8 @@ const HouseContextProvider = ({ children }) => {
 
     const MaxPrice = parseInt(price.split(" ")[2]);
 
-    console.log(MaxPrice);
+    console.log("max", MaxPrice);
+    console.log("min", minPrice);
 
     const newHouse = housesData.filter((house) => {
       const housePrice = parseInt(house.price);
@@ -61,11 +64,53 @@ const HouseContextProvider = ({ children }) => {
       ) {
         return house;
       }
+
+      if (isDeafualt(country) && isDeafualt(property) && isDeafualt(price)) {
+        return house;
+      }
+
+      //if country is not default
+
+      if (!isDeafualt(country) && isDeafualt(property) && isDeafualt(price)) {
+        return house.country === country;
+      }
+
+      if (!isDeafualt(property) && isDeafualt(country) && isDeafualt(price)) {
+        return house.type === property;
+      }
+
+      if (!isDeafualt(price) && isDeafualt(country) && isDeafualt(property)) {
+        if (housePrice >= minPrice && housePrice <= MaxPrice) {
+          return house;
+        }
+      }
+
+      if (!isDeafualt(country) && !isDeafualt(property) && isDeafualt(price)) {
+        return house.country === country && house.type === property;
+      }
+
+      if (!isDeafualt(country) && isDeafualt(property) && !isDeafualt(price)) {
+        if (housePrice >= minPrice && housePrice <= MaxPrice) {
+          return house.country === country;
+        }
+      }
+
+      if (isDeafualt(country) && !isDeafualt(property) && !isDeafualt(price)) {
+        if (housePrice >= minPrice && housePrice <= MaxPrice) {
+          return house.type === property;
+        }
+      }
     });
 
-    //totel search result
-
     console.log(newHouse, "newHouse");
+
+    setTimeout(() => {
+      return (
+        newHouse.length < 1 ? setHouse([]) :
+        setHouse(newHouse),
+        setLoading(false)
+      );
+    }, 1000);
   };
 
   return (
@@ -82,6 +127,7 @@ const HouseContextProvider = ({ children }) => {
         houses,
         loading,
         handleClick,
+        loading,
       }}
     >
       {children}
